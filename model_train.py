@@ -4,6 +4,7 @@ from keras.layers.normalization import BatchNormalization
 from keras.layers.convolutional import Conv2D
 from keras.layers.core import Activation , Dense , Dropout , Flatten
 from keras.layers import AveragePooling2D, MaxPooling2D, GlobalMaxPooling2D, GlobalAveragePooling2D
+from keras.preprocessing.image import ImageDataGenerator, array_to_img, img_to_array, load_img
 from keras import backend as K
 import numpy as np
 from keras.utils import np_utils
@@ -46,11 +47,11 @@ pool_size = 2
 def keras_model():
 	model = Sequential()
 	model.add(Conv2D(32, (5,5), input_shape=(input_size[0], input_size[1], 1), activation='relu'))
-	model.add(BatchNormalization())
+	# model.add(BatchNormalization())
 	model.add(MaxPooling2D(pool_size=(10, 10), strides=(10, 10), padding='same'))
+	model.add(Conv2D(64, (5, 5), activation='sigmoid'))
 	model.add(Flatten())
 	model.add(Dense(1024, activation='relu'))
-	model.add(BatchNormalization())
 	model.add(Dropout(0.6))
 	model.add(Dense(no_classes, activation='softmax'))
 	sgd = optimizers.SGD(lr=1e-2)
@@ -62,6 +63,7 @@ def keras_model():
 def train():
     train_images,train_labels,test_images,test_labels,val_images,val_labels = get_data()
 
+
     train_images = np.array(train_images)
     test_images = np.array(test_images)
     val_images = np.array(val_images)
@@ -69,6 +71,14 @@ def train():
     train_labels = np_utils.to_categorical(train_labels)
     test_labels = np_utils.to_categorical(test_labels)
     val_labels = np_utils.to_categorical(val_labels)
+
+    datagen = ImageDataGenerator(
+    featurewise_center=True,
+    featurewise_std_normalization=True,
+    rotation_range=20,
+    width_shift_range=0.2,
+    height_shift_range=0.2,
+    horizontal_flip=True)
 
     model,callbacks_list  = keras_model()
 

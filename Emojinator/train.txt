@@ -1,0 +1,29 @@
+Using TensorFlow backend.
+preparing all images as numpy arrays ...
+
+ total image available      7200
+ no of training images:     5760
+ no of test images:         720
+ no of validation images:   720
+Train on 5760 samples, validate on 720 samples
+Epoch 1/5
+5728/5760 [============================>.] - ETA: 0s - loss: 0.6663 - acc: 0.9012
+Epoch 00001: val_acc improved from -inf to 0.99861, saving model to /Users/amit/GitHub/Memojify 2/model/keras_model.h5
+5760/5760 [==============================] - 27s 5ms/step - loss: 0.6637 - acc: 0.9017 - val_loss: 0.1562 - val_acc: 0.9986
+Epoch 2/5
+5728/5760 [============================>.] - ETA: 0s - loss: 0.1008 - acc: 0.9988
+Epoch 00002: val_acc did not improve
+5760/5760 [==============================] - 28s 5ms/step - loss: 0.1006 - acc: 0.9988 - val_loss: 0.0487 - val_acc: 0.9986
+Epoch 3/5
+5728/5760 [============================>.] - ETA: 0s - loss: 0.0457 - acc: 0.9995
+Epoch 00003: val_acc improved from 0.99861 to 1.00000, saving model to /Users/amit/GitHub/Memojify 2/model/keras_model.h5
+5760/5760 [==============================] - 29s 5ms/step - loss: 0.0456 - acc: 0.9995 - val_loss: 0.0258 - val_acc: 1.0000
+Epoch 4/5
+5728/5760 [============================>.] - ETA: 0s - loss: 0.0282 - acc: 1.0000
+Epoch 00004: val_acc did not improve
+5760/5760 [==============================] - 28s 5ms/step - loss: 0.0282 - acc: 1.0000 - val_loss: 0.0167 - val_acc: 1.0000
+Epoch 5/5
+5728/5760 [============================>.] - ETA: 0s - loss: 0.0203 - acc: 0.9998
+Epoch 00005: val_acc did not improve
+5760/5760 [==============================] - 29s 5ms/step - loss: 0.0203 - acc: 0.9998 - val_loss: 0.0120 - val_acc: 1.0000
+accuracy : 100.00%

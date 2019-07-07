@@ -9,6 +9,15 @@ dataset_path = os.path.dirname(os.path.abspath(__file__))+'/data'
 if not os.path.exists("model"):
     os.mkdir("model")
 
+def img_lab(data_array):
+    images=[]
+    labels =[]
+    for (image,label) in data_array:
+        image = image.reshape((image.shape[0],image.shape[1],1))
+        images.append(image)
+        labels.append(label)
+    return images,labels
+
 def images_labels(data_path):
     image_label=[]
     print("preparing all images as numpy arrays ...\n")
@@ -27,20 +36,9 @@ def images_labels(data_path):
     return shuffle_me
 
 
-def img_lab(data_array):
-    images=[]
-    labels =[]
-    for (image,label) in data_array:
-        image = image.reshape((image.shape[0],image.shape[1],1))
-        images.append(image)
-        labels.append(label)
-    return images,labels
-
-
 def get_data():
 
     prepared_data = images_labels(dataset_path)
-
     training_data = prepared_data[:int(4/5*len(prepared_data))]
     testing_data =  prepared_data[int(4/5*len(prepared_data)):int(9/10*len(prepared_data))]
     validation_data = prepared_data[int(9/10*len(prepared_data)):]
@@ -62,8 +60,10 @@ def get_no_of_classes(dataset_path):
     return int(len(data_dir))
 
 def get_image_size(dataset_path):
-	img = cv2.imread(dataset_path+'/laugh/0.png', 0)
-	return img.shape
+	img = cv2.imread(dataset_path+'/1/1.jng', 0)
+	# img.shape
+	imgsizee=(50,50)
+	return imgsizee
 
 
 def get_emojis():
