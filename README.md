@@ -7,7 +7,7 @@ This data is then preprocessed, converting it to 50X50X1 binary format. Images c
 Model training consists of three parts:
 * Convolution
 * Polling
-* Flattening
+* Flattening  
 Finally model is trained and is ready for new data to be classified.
 
 ### Proposed Method for Hand Gesture Recognition
@@ -63,9 +63,9 @@ import h5py as h5py
 ```
 
 It consists of three parts -
-• Convolution
-• Polling
-• Flattening
+* Convolution 
+* Polling
+* Flattening
 The primary purpose of Convolution is to extract features from the input image. Convolution preserves the spatial relationship between pixels by learning image features using small squares of input data.
 
 ```
